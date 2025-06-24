@@ -1,0 +1,223 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CSS – The Art of Style</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #6366f1;
+      --accent: #06b6d4;
+      --bg: #f3f4f6;
+      --white: #ffffff;
+      --text: #1f2937;
+      --radius: 12px;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      --pad: 24px;
+      --trans: 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to right, #e0f7fa, #f3f4f6);
+      color: var(--text);
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: var(--white);
+      padding: var(--pad);
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-top: 12px;
+    }
+
+    nav a {
+      color: var(--white);
+      font-weight: 600;
+      text-decoration: none;
+      transition: color var(--trans);
+    }
+
+    nav a:hover {
+      color: #e5e7eb;
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: var(--pad);
+      padding: var(--pad);
+    }
+
+    section,
+    aside {
+      background: var(--white);
+      padding: var(--pad);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero {
+      background: #ecfeff;
+      padding: var(--pad);
+      margin-bottom: var(--pad);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero h2 {
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    .left img {
+      float: left;
+      margin: 0 16px 16px 0;
+      border-radius: var(--radius);
+      width: 130px;
+    }
+
+    .box-model,
+    .position,
+    .transition,
+    .animation {
+      margin: 20px 0;
+      padding: 16px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      background: var(--bg);
+      transition: var(--trans);
+    }
+
+    .transition{
+      background: var(--primary);
+      color: white;
+    }
+
+    .transition:hover {
+      background: var(--accent);
+      transform: scale(1.05);
+    }
+
+    .position{
+      position: relative;
+    }
+
+    .position::after {
+      content: "🎯";
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 1.4rem;
+    }
+
+    .animation {
+      width: 50px;
+      height: 50px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: bounce 1.2s ease-in-out infinite alternate;
+    }
+
+    @keyframes bounce {
+      to {
+        transform: translateY(-12px);
+      }
+    }
+
+    
+    footer {
+      background: var(--text);
+      color: white;
+      text-align: center;
+      padding: var(--pad);
+      margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
+      main {
+        grid-template-columns: 1fr;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>CSS – The Art of Style</h1>
+    <nav>
+      <ul>
+        <li><a href="#">Basics</a></li>
+        <li><a href="#">Layout</a></li>
+        <li><a href="#">Animation</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+  <section class="left">
+    <div class="hero">
+      <h2>Welcome to the World of CSS</h2>
+      <p>CSS is the design language of the web. From simple coloring to complex animations and layouts, CSS is the key to beautiful user experiences.</p>
+    </div>
+
+    <p>
+      <img src="css.jpg" alt="CSS image" />
+      CSS allows you to float images like this one and wrap text around them for elegant layouts.
+    </p>
+
+    <div class="box-model">
+      📦 This box shows padding, margin, and border in action.
+    </div>
+
+    <div class="position">
+      This box uses relative positioning with a target emoji.
+    </div>
+
+    <div class="transition">
+      Hover over me to see a color transition and slight scaling!
+    </div>
+
+    <div class="animation"></div>
+  </section>
+
+  <!-- Moved OUTSIDE of section for proper column layout -->
+  <aside>
+    <h3>Sidebar Note</h3>
+    <p>Did you know? The first version of CSS was released in 1996. It has evolved into a powerful language for web design!</p>
+  </aside>
+</main>
+
+  
+
+  <footer>
+    <p>&copy; 2025 CSS: The Art of Style. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
+
